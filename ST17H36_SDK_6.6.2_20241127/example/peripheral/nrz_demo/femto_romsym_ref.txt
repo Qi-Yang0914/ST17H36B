@@ -1,0 +1,396 @@
+vector_base
+__Vectors_yoc
+irq_entry
+exc_entry
+
+s_gpio_wakeup_src
+gpioin_event
+gpio_init
+gpio_dir
+gpio_write
+gpio_fast_write
+gpio_read
+gpio_pull_set
+gpio_wakeup_set
+gpio_ds_control
+gpio_pin2pin3_control
+gpio_cfg_analog_io
+gpio_fmux_control
+gpio_fmux_set
+gpioin_init
+gpioin_disable
+gpioin_enable
+gpioin_register
+gpioin_unregister
+gpio_debug_mux
+gpio_retention
+gpio_get_handler
+GPIO_IRQHandler
+krhino_intrpt_enter_hook
+krhino_intrpt_exit_hook
+NOVIC_IRQ_Default_Handler
+p_g_top_irqstack
+p_g_active_task
+p_g_irqvector
+g_active_task
+g_irqvector
+g_system_clk
+g_rfPhyTxPower
+g_rfPhyPktFmt
+g_rfPhyFreqOffSet
+g_smartWindowSize
+osal_mem_set_heap
+drv_irq_init
+boot_init
+wakeup_init
+osal_set_event
+osal_start_timerEx
+osal_init_system
+osal_pwrmgr_device
+osal_start_system
+LL_ProcessEvent
+osal_mem_alloc
+osal_memset
+LL_Init
+osal_sys_tick
+clk_get_pclk
+drv_disable_irq
+drv_enable_irq
+disableSleep
+enableSleep
+rf_phy_ini
+llWaitingIrq
+g_pmCounters
+g_same_rf_channel_flag
+g_rfPhyTpCal0_2Mbps
+g_rfPhyTpCal1_2Mbps
+g_rfPhyTpCal0
+g_rfPhyTpCal1
+read_current_fine_time
+ll_debug_output
+ll_hw_get_irq_status
+ll_hw_clr_irq
+ll_processExtAdvIRQ
+ll_processExtScanIRQ
+ll_processExtInitIRQ
+ll_processPrdAdvIRQ
+ll_processPrdScanIRQ
+ll_processBasicIRQ
+llSecAdvAllow
+llSetupSecAdvEvt
+llSetupSecScan
+llSetupSecInit
+ISR_entry_time
+llTaskState
+llSecondaryState
+scanInfo
+initInfo
+LL_InitConnectContext
+LL_EXT_Init_IQ_pBuff
+ble_main
+clk_init
+g_rfPhyClkSel
+WaitRTCCount
+GAP_ParamsInit
+osal_memcpy
+osal_revmemcpy
+osal_memcmp
+osal_isbufset
+osal_clear_event
+osal_msg_receive
+osal_msg_deallocate
+HCI_LE_ClearWhiteListCmd
+HCI_LE_AddWhiteListCmd
+osal_strlen
+osal_get_timeoutEx
+osal_stop_timerEx
+HCI_ReadRssiCmd
+HCI_LE_ConnUpdateCmd
+osal_CbTimerStop
+osal_CbTimerStart
+osal_msg_allocate
+osal_msg_send
+osal_mem_free
+HCI_ProcessEvent
+osal_CbTimerProcessEvent
+HCI_Init
+osal_CbTimerInit
+llInitFeatureSet2MPHY
+llInitFeatureSetDLE
+LL_PLUS_PerStats_Init
+HCI_LE_ReadResolvingListSizeCmd
+LL_ReadRssi
+LL_ReadFoff
+LL_ReadCarrSens
+LL_PLUS_DisableSlaveLatency
+LL_PLUS_EnableSlaveLatency
+HCI_PPLUS_ConnEventDoneNoticeCmd
+HCI_LE_SetDataLengthCmd
+HCI_LE_SetDefaultPhyMode
+HCI_LE_SetPhyMode
+rf_phy_set_txPower
+LL_PLUS_PerStasReadByChn
+LL_PLUS_PerStatsReset
+pwrmgr_init
+pwrmgr_register
+swu_uart_init
+swu_tx_mode
+GAP_Init
+L2CAP_Init
+GATT_Init
+SM_Init
+L2CAP_ProcessEvent
+GAP_ProcessEvent
+GATT_ProcessEvent
+SM_ProcessEvent
+GAP_SetParamValue
+GAP_RegisterForHCIMsgs
+ATT_GetCurrentMTUSize
+GAP_SendSlaveSecurityRequest
+GAP_PasscodeUpdate
+GAP_TerminateAuth
+linkDB_Find
+GAP_Authenticate
+primaryServiceUUID
+characterUUID
+deviceNameUUID
+appearanceUUID
+gapServiceUUID
+GAP_GetParamValue
+L2CAP_ConnParamUpdateReq
+GAP_EndDiscoverable
+GAP_UpdateAdvertisingData
+GAP_TerminateLinkReq
+GAP_DeviceDiscoveryRequest
+GAP_MakeDiscoverable
+linkDB_State
+linkDB_Up
+linkDB_Register
+charUserDescUUID
+clientCharCfgUUID
+GATT_RegisterForReq
+GATT_RegisterService
+GATT_FindHandle
+GATT_FindNextAttr
+ATT_CompareUUID
+secondaryServiceUUID
+ATT_ExchangeMTURsp
+GATT_AppCompletedMsg
+GATT_FindHandleUUID
+ATT_FindByTypeValueRsp
+GATT_VerifyReadPermissions
+ATT_ReadByTypeRsp
+ATT_ReadRsp
+ATT_ReadBlobRsp
+ATT_ReadMultiRsp
+ATT_ErrorRsp
+g_ATT_MTU_SIZE_MAX
+g_ATT_MAX_NUM_HANDLES_INFO
+ATT_ReadByGrpTypeRsp
+ATT_WriteRsp
+ATT_PrepareWriteRsp
+ATT_ExecuteWriteRsp
+GATT_Notification
+GATT_Indication
+serviceChangedUUID
+gattServiceUUID
+GAP_SecParamsInit
+SM_ResponderInit
+periConnParamUUID
+log_printf
+setSleepMode
+pwrmgr_config
+pwrmgr_RAM_retention_set
+pwrmgr_wakeup_process
+pwrmgr_sleep_process
+pwrmgr_LowCurrentLdo_enable
+pwrmgr_LowCurrentLdo_disable
+pwrmgr_RAM_retention_set
+pwrmgr_is_lock
+pwrmgr_lock
+pwrmgr_unlock
+rtc_get_counter
+JUMP_FUNCTION_SET
+set_timer
+cache_init
+cache_tag_flush
+otp_cache_init
+cache_mpu_config
+__disable_cache
+__enable_cache
+__enter_cache_bypass_section
+__exit_cache_bypass_section
+clk_tracking_init
+check_clk_settle
+watchdog_init
+s_config_swClk0
+s_config_swClk1
+osal_pwrmgr_powerconserve0
+GAP_ParamsInit
+LL_ReadBDADDR
+pGapAdvertState
+HCI_LE_SetAdvDataCmd
+HCI_LE_SetScanRspDataCmd
+gapProfileRole
+gapAddAddrAdj
+HCI_LE_SetAdvParamCmd
+gapDeviceAddrMode
+HCI_LE_SetAdvEnableCmd
+smUint8ToAuthReq
+smSendSMMsg
+pAuthLink
+smpBuildSecurityReq
+linkDB_Authen
+ATT_HandleValueNoti
+ble_main
+linkDB_InitContext
+ll_hw_go0
+g_advRptCnt
+gapFreeEstLink 
+gattStopTimer 
+ATT_ParseHandleValueInd 
+gattNotifyEvent 
+ATT_ParseErrorRsp 
+ATT_FindInfoReq 
+osal_CbTimerUpdate 
+gattRegisterClient 
+gattStartTimer 
+ATT_ParseFindInfoRsp 
+HCI_LE_SetScanParamCmd 
+HCI_LE_SetScanEnableCmd 
+pGapDiscReq 
+gapIsScanning 
+HCI_LE_CreateConnCmd 
+pEstLink 
+osal_start_reload_timer
+hal_timer_init
+hal_timer_set
+hal_timer_mask_int
+hal_timer_stop
+hal_timer_deinit
+clk_gate_enable
+clk_gate_disable
+get_systick
+get_ms_intv
+WaitMs
+gp_trapstack
+clk_set_rc32M_div
+clk_gate_disable
+clk_gate_enable
+g_system_reset_cause
+hal_uart_init
+wakeupProcess0
+wakeup_init0
+gattRegisterServer
+ATT_FindInfoRsp
+ATT_ParseFindInfoReq
+ATT_ParseFindByTypeValueReq
+ATT_ParseReadByTypeReq
+ATT_ParseReadReq
+ATT_ParseReadByTypeReq
+ATT_ParseWriteReq
+__memset_fast _symrom___memset_fast
+__memcpy_fast _symrom___memcpy_fast
+memset _symrom_memset
+memcpy _symrom_memcpy
+hal_pcd_ep_dir_set
+hal_pcd_ep_dir_set
+hal_pcd_ep_info_set
+hal_pcd_init
+hal_pcd_send_data
+pcd_handle
+pcd_init
+pcd_reset
+pcd_set_config			_symrom_pcd_set_config			
+pcd_setup				_symrom_pcd_setup				
+pcd_usr_init			_symrom_pcd_usr_init			
+usb_pcd_class_req_proc	_symrom_usb_pcd_class_req_proc	
+usb_pcd_setup_proc		_symrom_usb_pcd_setup_proc		
+usb_pcd_std_req_proc	_symrom_usb_pcd_std_req_proc	
+usb_pcd_svc_rx_endp		_symrom_usb_pcd_svc_rx_endp		
+usb_pcd_svc_tx_endp		_symrom_usb_pcd_svc_tx_endp		
+usb_get_desc_req_proc	_symrom_usb_get_desc_req_proc	
+usb_hid_tx_send			_symrom_usb_hid_tx_send			
+USB_IRQHandler			_symrom_USB_IRQHandler			
+hid_remote_wakeup_rdy   _symrom_hid_remote_wakeup_rdy
+hid_dev_ready           _symrom_hid_dev_ready
+g_hid_protocol          _symrom_g_hid_protocol
+g_hid_idle_rate         _symrom_g_hid_idle_rate
+adv_param
+scanInfo
+initInfo
+rfCounters
+ownRandomAddr
+GATTServApp_InitContext _symrom_GATTServApp_InitContext
+g_tx_adv_buf _symrom_g_tx_adv_buf
+tx_scanRsp_desc _symrom_tx_scanRsp_desc
+g_tx_ci_buf _symrom_g_tx_ci_buf
+g_rx_adv_buf _symrom_g_rx_adv_buf
+GAP_DeviceInit _symrom_GAP_DeviceInit
+GATT_InitServer _symrom_GATT_InitServer
+GATTServApp_RegisterService _symrom_GATTServApp_RegisterService
+GAPBondMgr_Init _symrom_GAPBondMgr_Init
+GATTServApp_Init _symrom_GATTServApp_Init
+GAPBondMgr_ProcessEvent _symrom_GAPBondMgr_ProcessEvent
+GATTServApp_ProcessEvent _symrom_GATTServApp_ProcessEvent
+gapServiceCBs _symrom_gapServiceCBs
+gattServiceCBs _symrom_gattServiceCBs
+devInfoCBs _symrom_devInfoCBs
+GAPBondMgr_Register _symrom_GAPBondMgr_Register
+devInfoService _symrom_devInfoService
+devInfoPnpIdProps _symrom_devInfoPnpIdProps
+devInfoPnpIdUUID _symrom_devInfoPnpIdUUID
+devInfoPnpId _symrom_devInfoPnpId
+gapService _symrom_gapService
+gapDeviceNameCharProps _symrom_gapDeviceNameCharProps
+gapDeviceName _symrom_gapDeviceName
+gapAppearanceCharProps _symrom_gapAppearanceCharProps
+gapAppearance _symrom_gapAppearance
+gattService _symrom_gattService
+serviceChangedCharProps _symrom_serviceChangedCharProps
+serviceChange_indCharCfg _symrom_serviceChange_indCharCfg
+rf_phy_clk_cfg
+ll_hw_set_rfphyFreqOff
+_stack_bss_init
+rc32k_calibration _symrom_rc32k_calibration
+HCI_GAPTaskRegister _symrom_HCI_GAPTaskRegister
+HCI_L2CAPTaskRegister _symrom_HCI_L2CAPTaskRegister
+HCI_bm_alloc _symrom_HCI_bm_alloc
+HCI_SendDataPkt _symrom_HCI_SendDataPkt
+osal_bm_free _symrom_osal_bm_free
+g_advRptNum _symrom_g_advRptNum
+gp_trapstack _symrom_gp_trapstack
+gp_trapstack_multiplex _symrom_gp_trapstack_multiplex
+trap_en _symrom_trap_en
+hal_uart_send_byte
+gapBond_IOCap
+gapBond_MITM
+gapBond_Passcode
+g_t_llhwgo
+ll_hw_set_rx_timeout
+ll_hw_set_srx
+ll_hw_set_trx_settle
+ll_hw_set_stx
+ll_hw_set_trx
+ll_hw_set_tx_rx_release
+ll_hw_set_rx_tx_interval
+ll_hw_set_tx_rx_interval
+rf_phy_bb_cfg
+ll_hw_set_crc_fmt
+ll_hw_ign_rfifo
+read_LL_remainder_time
+ll_hw_rst_tfifo
+ll_hw_rst_rfifo
+set_max_length
+ll_hw_write_tfifo
+WaitUs
+ll_hw_get_tr_mode
+rf_phy_get_pktFoot
+ll_hw_read_rfifo
+smRegisterResponder
+swu_uart_send_buff
+osalInitTasks
+Exception_Init
+ECLIC_Init
+_premain_init
+

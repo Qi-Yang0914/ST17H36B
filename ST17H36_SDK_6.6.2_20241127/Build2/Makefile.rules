@@ -1,0 +1,134 @@
+
+TARGET_ELF := $(TARGET).elf
+
+TARGET_LIB := $(TARGET).a
+
+ALL_CSRCS = $(filter-out $(wildcard $(EXCLUDE_SRCS)), $(sort $(wildcard $(C_SRCS)) $(call get_csrcs, $(SRCDIRS) $(C_SRCDIRS))))
+ALL_CXXSRCS = $(filter-out $(wildcard $(EXCLUDE_SRCS)), $(sort $(wildcard $(CXX_SRCS)) $(call get_cxxsrcs, $(SRCDIRS) $(CXX_SRCDIRS))))
+ALL_ASMSRCS = $(filter-out $(wildcard $(EXCLUDE_SRCS)), $(sort $(wildcard $(ASM_SRCS)) $(call get_asmsrcs, $(SRCDIRS) $(ASM_SRCDIRS))))
+
+ALL_ASM_OBJS := $(ALL_ASMSRCS:=.o)
+ALL_C_OBJS := $(ALL_CSRCS:=.o)
+ALL_CXX_OBJS := $(ALL_CXXSRCS:=.o)
+
+ALL_OBJS += $(ALL_ASM_OBJS) $(ALL_C_OBJS) $(ALL_CXX_OBJS)
+
+ALL_DEPS := $(ALL_OBJS:=.d)
+ALL_GCNOS := $(ALL_OBJS:.o=.gcno)
+
+CLEAN_OBJS += $(TARGET).elf $(TARGET).map $(TARGET).bin $(TARGET).dump $(TARGET).dasm \
+		$(TARGET).srec $(TARGET).hex $(TARGET).verilog openocd.log $(ALL_OBJS) $(ALL_DEPS) $(ALL_GCNOS)
+REAL_CLEAN_OBJS = $(subst /,$(PS), $(CLEAN_OBJS))
+
+BLD_MAP = $(NUCLEI_SDK_ROOT)/__bld_cmd/map.py
+BLD_MAP_ = $(NUCLEI_SDK_ROOT)/__bld_cmd_/map.py
+
+ifneq ($(wildcard $(BLD_MAP)),)
+BLD_MAPFILE = python $(BLD_MAP)
+else ifneq ($(wildcard $(BLD_MAP_)),)
+BLD_MAPFILE = python $(BLD_MAP_)
+else
+BLD_MAPFILE = @$(ECHO) "ERROR: can not find map.py!"
+endif
+
+# Default goal, placed before dependency includes
+all: info $(TARGET).elf
+
+# include dependency files of application
+ifneq ($(MAKECMDGOALS),clean)
+-include $(ALL_DEPS)
+endif
+
+.PHONY: all info showflags showtoolver help bin size dasm upload run_openocd run_gdb run_qemu run_xlspike run_qemu_debug run_xlspike_rbb run_xlspike_openocd clean debug
+
+info:
+	@$(ECHO) Current Configuration: TOOLCHAIN=$(TOOLCHAIN) RISCV_ARCH=$(RISCV_ARCH) RISCV_ABI=$(RISCV_ABI) RISCV_TUNE=$(RISCV_TUNE) RISCV_CMODEL=$(RISCV_CMODEL) SOC=$(SOC) BOARD=$(BOARD) CORE=$(CORE) ARCH_EXT=$(ARCH_EXT) DOWNLOAD=$(DOWNLOAD) STDCLIB=$(STDCLIB) SMP=$(SMP) BOOT_HARTID=$(BOOT_HARTID)
+
+showflags:
+	@$(ECHO) TARGET: $(TARGET)
+	@$(ECHO) NUCLEI_SDK_ROOT: $(NUCLEI_SDK_ROOT)
+	@$(ECHO) NUCLEI_SDK_NMSIS: $(NUCLEI_SDK_NMSIS)
+	@$(ECHO) OPENOCD_CFG: $(OPENOCD_CFG)
+	@$(ECHO) LINKER_SCRIPT: $(LINKER_SCRIPT)
+	@$(ECHO) ASMFLAGS: $(ASMFLAGS)
+	@$(ECHO) CFLAGS: $(CFLAGS)
+	@$(ECHO) CXXFLAGS: $(CXXFLAGS)
+	@$(ECHO) LDFLAGS: $(LDFLAGS)
+	@$(ECHO) CC: $(CC)
+	@$(ECHO) CXX: $(CXX)
+	@$(ECHO) GDB: $(GDB)
+
+showtoolver:
+	@$(ECHO) Show $(CC) version
+	@$(CC) -v
+	@$(ECHO) Show $(OPENOCD) version
+	@$(OPENOCD) -v
+	@$(ECHO) Show $(QEMU) version
+	-@$(QEMU) --version
+
+help:
+	@$(ECHO) "Femto series RISC-V Embedded Processor Software Development Kit "
+	@$(ECHO) "== Make variables used in Nuclei SDK =="
+	@$(ECHO) "V: V=1 verbose make, will print more information, by default V=0"
+	@$(ECHO) "== How to Use with Make =="
+	@$(ECHO) "1. Build Application:"
+	@$(ECHO) "all"
+	@$(ECHO) "   Build a software program"
+	@$(ECHO) "2. Keil style map file convert"
+	@$(ECHO) "map"
+	@$(ECHO) "3. Export Disassembly,ihex and verilog file"
+	@$(ECHO) "dasm"
+	@$(ECHO) "== Example Usage =="
+	@$(ECHO) "1. cd <SDK>/project/rom"
+	@$(ECHO) "2. Build for program: make all"
+	@$(ECHO) "3. convert new style map: make map"
+
+
+$(TARGET_LIB): $(ALL_OBJS)
+	$(TRACE_LINK)
+	$(Q)$(AR) crv $(TARGET_LIB) $(ALL_OBJS)
+
+
+$(TARGET).elf: $(ALL_OBJS)
+	$(TRACE_LINK)
+	$(Q)$(CC) $(CFLAGS) $(ALL_OBJS) -o $@ $(LDFLAGS)
+	$(Q)$(SIZE) -A $@
+
+$(ALL_ASM_OBJS): %.o: % $(COMMON_PREREQS)
+	$(TRACE_ASSEMBLE)
+	$(Q)$(CC) $(ASMFLAGS) $(MKDEP_OPT) -c -o $@ $<
+
+$(ALL_C_OBJS): %.o: % $(COMMON_PREREQS)
+	$(TRACE_COMPILE)
+	$(Q)$(CC) $(CFLAGS) $(MKDEP_OPT) -c -o $@ $<
+
+$(ALL_CXX_OBJS): %.o: % $(COMMON_PREREQS)
+	$(TRACE_COMPILE)
+	$(Q)$(CXX) $(CXXFLAGS) $(MKDEP_OPT) -c -o $@ $<
+
+
+lib: $(TARGET_LIB)
+
+dasm: $(TARGET_ELF)
+	-$(OBJDUMP) -S -d -M no-aliases $< > $(TARGET).dump
+	-$(OBJDUMP) -d -M no-aliases $< > $(TARGET).dasm
+	-$(OBJCOPY) $< -O ihex $(TARGET).hex
+	-$(OBJCOPY) $< -O srec $(TARGET).srec
+	-$(OBJCOPY) $< -O verilog $(TARGET).verilog
+	
+bin: $(TARGET_ELF)
+	$(OBJCOPY) $< -O binary $(TARGET).bin
+
+map: $(TARGET_ELF)
+	$(BLD_MAPFILE) $(TARGET).map
+	
+sym: $(TARGET_ELF)
+	python symbol_make.py $(TARGET).elf
+
+size: $(TARGET_ELF)
+	$(Q)$(SIZE) $<
+
+
+clean:
+	@$(ECHO) "Clean all build objects"
+	$(Q)$(RM) $(REAL_CLEAN_OBJS)

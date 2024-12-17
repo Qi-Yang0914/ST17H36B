@@ -1,0 +1,47 @@
+---
+#release tag name @ current repo
+ReleaseTagName: 
+- tag_v661
+
+ReleaseBranchName:
+- PHY62XX_SDK_6.6.1
+
+#build config
+# - yaml file
+BuildConfig: 
+- bld_v661
+
+#Protect file config
+ProtectFile:
+- rls_example:
+  - bld_v661
+- remove_file:
+  - components\ble\controller\*.c
+  - components\ble\hci\*.c
+  - components\ble\host\*.c
+  - components\driver_rom\source\usb*.c
+  - components\profiles\Roles\gap*.c
+  - components\profiles\GATT\gatt*.c
+  - components\profiles\DevInfo\*.c
+  - components\profiles\Batt\*.c
+  - misc\*.asm 
+  - misc\*.map 
+  - misc\*.axf
+  - '*.py'
+  - '*.txt'
+- remove_folder:
+  #- lib\otpbin_lib\
+  - components\ethermind\
+  - components\libraries\dwc\
+  - components\libraries\libc\
+  - components\libraries\ctrap\
+  - components\libraries\crc16\
+  - components\libraries\datetime\
+  - components\libraries\dfl\
+  - components\libraries\dwc\
+  - components\libraries\fs\
+  - components\libraries\sec_tbx\
+  - components\libraries\secure\
+  - components\libraries\tinycrypt-0.2.8\
+  - components\osal\source\
+  - lib\generate_lib\

@@ -1,0 +1,65 @@
+---
+
+cm-otp:
+- example\peripheral\cm\
+- {'cmd': ['clean','LDCFG=1 -j8 OLD=1 dasm']}
+- ['cm.hex', 'cm-otp.hex']
+
+cm-ram:
+- example\peripheral\cm\
+- {'cmd': ['clean','LDCFG=2 -j8 OLD=1 dasm']}
+- ['cm.hex', 'cm-ram.hex']
+
+cm-spif:
+- example\peripheral\cm\
+- {'cmd': ['clean','LDCFG=3 CFG_BLE_TX_PKT_LEN=33 -j8 OLD=1 dasm']}
+- ['cm.hex', 'cm-spif.hex']
+
+gpio-bigotp:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=1 LDCFG=1 -j8 OLD=1 dasm']}
+- ['gpio.hex', 'gpio-bigotp.hex']
+
+gpio-ram:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=0 LDCFG=2 -j8 OLD=1 dasm']}
+- ['gpio.hex', 'gpio-ram.hex']
+
+gpio-osal:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=4 LDCFG=2 -j8 OLD=1 dasm']}
+- ['gpio.hex', 'gpio-osal.hex']
+
+gpio-biguartrun:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=2 LDCFG=2 -j8 OLD=1 dasm']}
+- ['gpio.hex', 'gpio-biguartrun.hex']
+
+gpio-bigflash:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=3 LDCFG=3 -j8 OLD=1 dasm']}
+- ['gpio.hex', 'gpio-bigspif.hex']
+
+usb:
+- example\peripheral\usb_mouse\
+- {'cmd': ['clean','-j8 OLD=1 dasm']}
+
+spc:
+- example\smart_link\private_central\simple_private_central\
+- {'cmd': ['clean','-j8 OLD=1 dasm map']}
+
+spp:
+- example\smart_link\private_peripheral\simple_private_peripheral\
+- {'cmd': ['clean','-j8 OLD=1 dasm map']}
+
+sbp:
+- example\ble_peripheral\simple_ble_peripheral\
+- {'cmd': ['clean','-j8 OLD=1 dasm map']}
+
+mskb:
+- example\ble_peripheral\mskb_3mod\
+- {'cmd': ['clean','-j8 OLD=1 dasm map']}
+
+mskb_rcvr:
+- example\smart_link\private_central\mskb_rcvr\
+- {'cmd': ['clean','-j8 OLD=1 dasm map']}

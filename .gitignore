@@ -1,0 +1,26 @@
+
+__bld_cmd_/*.txt
+*.i
+*.o
+*.d
+_bld.txt
+*.map
+*.elf
+*.srec
+*.hex
+*.hexf
+*.asm
+*.dasm
+*.dump
+*.hexo
+*.verilog
+*.orig
+*.htm
+setup_config.ps1
+
+#ignor folder
+
+#VS Coder
+.vscode
+*.code-workspace
+

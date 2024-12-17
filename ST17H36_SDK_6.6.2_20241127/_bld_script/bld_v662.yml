@@ -1,0 +1,120 @@
+---
+rf:
+- lib\generate_lib\
+- {'cmd': ['clean','-j8 lib']}
+- [\rf.a, ..\librf.a]
+
+gpio-ram:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=0 LDCFG=2 -j8 dasm']}
+- ['gpio.hex', 'gpio-ram.hex']
+
+gpio-otp:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=0 LDCFG=1 -j8 dasm']}
+- ['gpio.hex', 'gpio-otp.hex']
+
+gpio-flash:
+- example\peripheral\gpio\
+- {'cmd': ['clean','LDTMODE=0 LDCFG=3 -j8 dasm']}
+- ['gpio.hex', 'gpio-flash.hex']
+
+gpio-mix:
+- example\peripheral\gpio_mix\
+- {'cmd': ['clean','-j8 dasm map']}
+
+adc:
+- example\peripheral\adc\
+- {'cmd': ['clean','-j8 dasm map']}
+
+i2c:
+- example\peripheral\i2c\
+- {'cmd': ['clean','-j8 dasm map']}
+
+ble_at:
+- example\ble_peripheral\ble_at\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=0 -j8 dasm map']}
+
+ble_at_otp:
+- example\ble_peripheral\ble_at_otp\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=0 -j8 dasm map']}
+
+ir:
+- example\peripheral\ir_demo\
+- {'cmd': ['clean','-j8 dasm map']}
+
+nrz:
+- example\peripheral\nrz_demo\
+- {'cmd': ['clean','-j8 dasm map']}
+
+usb:
+- example\peripheral\usb_mouse\
+- {'cmd': ['clean','-j8 dasm map']}
+
+pwm:
+- example\peripheral\timx\
+- {'cmd': ['clean','-j8 dasm map']}
+
+fs:
+- example\peripheral\fs\
+- {'cmd': ['clean','-j8 dasm map']}
+
+dtm:
+- example\ble_peripheral\dtmOnly\
+- {'cmd': ['clean','YML_DEF_DTM_SWU_MODE=0 -j8 dasm map']}
+- ['dtmOnly.hex', 'dtmOnly_dwu.hex']
+
+sbphid:
+- example\ble_peripheral\simple_ble_hid\
+- {'cmd': ['clean','-j8 dasm map']}
+
+sbplightbar:
+- example\ble_peripheral\simple_ble_lightBar\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=0 -j8 dasm map']}
+
+sbp_lightbar_rx:
+- example\ble_peripheral\simple_ble_lightbar\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=1 -j8 dasm map']}
+- ['sbp_lightbar.hex', 'sbp_lightbar_rx.hex']
+
+sbp:
+- example\ble_peripheral\simple_ble_peripheral\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=0 YML_DEF_SBKOTA_MODE=0 -j8 dasm map']}
+
+sbplight:
+- example\ble_peripheral\simple_ble_pwmLighting\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=0 -j8 dasm map']}
+
+sbpLight_rx:
+- example\ble_peripheral\simple_ble_pwmLighting\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=1 -j8 dasm map']}
+- ['sbpLight.hex', 'sbpLight_rx.hex']
+
+srf:
+- example\PropProtocal\smart_rf\
+- {'cmd': ['clean','-j8 dasm map']}
+
+nos:
+- example\PropProtocal\snrf_nos\
+- {'cmd': ['clean','-j8 dasm map']}
+
+rcu_adv:
+- example\PropProtocal\stx_rcu\
+- {'cmd': ['clean','-j8 dasm map']}
+
+sbp_slbota:
+- example\ble_peripheral\simple_ble_peripheral_slbota\
+- {'cmd': ['clean','-j8 dasm map']}
+
+slb:
+- example\OTA\slboot\
+- {'cmd': ['clean','-j8 dasm map']}
+
+ota_sbk:
+- example\OTA\ota_sbk\
+- {'cmd': ['clean','-j8 dasm map']}
+
+sbp_sbkota:
+- example\ble_peripheral\simple_ble_peripheral\
+- {'cmd': ['clean','YML_DEF_EXT_ADVSCAN_MODE=0 YML_DEF_SBKOTA_MODE=1 -j8 dasm map']}
+

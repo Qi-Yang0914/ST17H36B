@@ -1,0 +1,1 @@
+执行编译nrz_test.py脚本生成8通道色彩buf数据，可以下载到flash addr区域，起始地址可设为0x11004000，由nrz.c代码中宏定义MEM_ADDR设置。

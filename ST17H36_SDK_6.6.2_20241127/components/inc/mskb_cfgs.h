@@ -1,0 +1,127 @@
+#ifndef __SDK_CONFIG_H__
+#define __SDK_CONFIG_H__
+// <<< Use Configuration Wizard in Context Menu >>>\n
+
+
+#include "rom_sym_def.h"
+
+#ifdef USE_APP_CONFIG
+#include "appl_cfgs.h"
+#endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+#ifndef MACRO_KEY
+#define MACRO_KEY 1
+#endif
+
+#ifndef PHY_HW_RF_FREQ_FOFF_CONFIG
+#define PHY_HW_RF_FREQ_FOFF_CONFIG (RF_PHY_FREQ_FOFF_00KHZ)
+#endif
+
+#ifndef WHEEL_ENABLED
+#define WHEEL_ENABLED 1
+#endif
+
+#ifndef WHEELA_PINN
+#define WHEELA_PINN (GPIO_P10)
+#endif
+
+#ifndef WHEELB_PINN
+#define WHEELB_PINN (GPIO_P09)
+#endif
+
+
+#ifndef MOTION_SENSOR_ENABLED
+#define MOTION_SENSOR_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_ORIENTATION_CONFIG
+#define MOTION_SENSOR_ORIENTATION_CONFIG 90
+#endif
+
+#ifndef MOTION_SENSOR_KA8_ENABLED
+#define MOTION_SENSOR_KA8_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_FCT3065_ENABLED
+#define MOTION_SENSOR_FCT3065_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_FCT3065_XYD_ENABLED
+#define MOTION_SENSOR_FCT3065_XYD_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_MX8650A_ENABLED
+#define MOTION_SENSOR_MX8650A_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_PAW3212_ENABLED
+#define MOTION_SENSOR_PAW3212_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_SG8910_ENABLED
+#define MOTION_SENSOR_SG8910_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_SG8925_ENABLED
+#define MOTION_SENSOR_SG8925_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_PAW3205_ENABLED
+#define MOTION_SENSOR_PAW3205_ENABLED 1
+#endif
+
+#ifndef MOTION_SENSOR_SCLK_PINN
+#define MOTION_SENSOR_SCLK_PINN (GPIO_P16)
+#endif
+
+#ifndef MOTION_SENSOR_SCLK_FMUX
+#define MOTION_SENSOR_SCLK_FMUX (FMUX_P16_SPI_CLK)
+#endif
+
+#ifndef MOTION_SENSOR_CHPS_PINN
+#define MOTION_SENSOR_CHPS_PINN (GPIO_DUMMY)
+#endif
+
+#ifndef MOTION_SENSOR_CHPS_FMUX
+#define MOTION_SENSOR_CHPS_FMUX (FMUX_GPIO)
+#endif
+
+#ifndef MOTION_SENSOR_MOSI_PINN
+#define MOTION_SENSOR_MOSI_PINN (GPIO_P17)
+#endif
+
+#ifndef MOTION_SENSOR_MOSI_FMUX
+#define MOTION_SENSOR_MOSI_FMUX (FMUX_P17_SPI_TX)
+#endif
+
+#ifndef MOTION_SENSOR_MISO_PINN
+#define MOTION_SENSOR_MISO_PINN (GPIO_P18)
+#endif
+
+#ifndef MOTION_SENSOR_MISO_FMUX
+#define MOTION_SENSOR_MISO_FMUX (FMUX_P18_SPI_RX)
+#endif
+
+#ifndef DONGLE_ID
+#define DONGLE_ID (0x0CEB)
+#endif
+
+#ifndef HID_BLE_NAME
+#define HID_BLE_NAME    "HID Mouse3"
+#endif
+
+#ifndef MOUSE_ULP_ENABLED
+#define MOUSE_ULP_ENABLED 0
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

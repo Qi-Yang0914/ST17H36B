@@ -1,0 +1,37 @@
+*.i
+*.d
+*.o
+*.asm
+*.htm
+*.map
+*.bin
+*.elf
+*.ihex
+*.hexo
+*.hex
+*.hexf
+*.txt
+*.bat
+*.session
+*.mk
+*.db
+*.cdkws.*
+*.tags
+!__bld_cmd/format.bat
+*.session
+*.log
+*.txt
+bld_example.yml
+rls_example.yml
+AStyle.exe
+
+
+#ignor folder
+**/.cdk
+**/Obj
+**/Lst
+__pycache__
+#VS Coder
+.vscode
+*.code-workspace
+

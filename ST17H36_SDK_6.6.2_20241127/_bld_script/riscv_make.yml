@@ -1,0 +1,38 @@
+---
+make_tool:
+- riscv-nuclei-elf-gcc.exe
+- riscv64-unknown-elf-gcc.exe
+
+# add bld tool path 
+tPath0:
+- D:\NucleiStudio\toolchain
+
+tPath1:
+- C:\NucleiStudio\toolchain
+
+tPath2:
+- D:\Proj\\NucleiStudio\\toolchain
+
+tPath3:
+- D:\software_tool\NucleiStudio\toolchain
+
+tPath4:
+- F:\software\NucleiStudio_IDE_202212-win64\NucleiStudio\toolchain
+
+tPath5:
+- F:\software\NucleiStudio_IDE_202406-win64\NucleiStudio\toolchain
+
+tPath6:
+- C:\Dfile\NucleiStudio\toolchain
+
+tPath7:
+- C:\tools\NucleiStudio_IDE_202402_DEV-win64\NucleiStudio\toolchain
+
+tPath8:
+- E:\NucleiStudio_IDE_202402_DEV-win64\NucleiStudio\toolchain
+
+GitUrl:
+- git_url:
+  - git@192.168.1.11:gecko/femto_sdk.git
+
+  
